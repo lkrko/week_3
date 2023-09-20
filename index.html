@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>week3</title>
+	<style type="text/css">
+		#container{display: flex;}
+		body{margin: 0; text-align: center;}
+		.shiftani{background: url(racoon.jpeg); 
+			width: 50vw; height: 50vh; margin-top: 200px;
+			background-size: 50vw auto;
+			animation: shift 2s infinite linear;}
+		#right{transform: rotateY(180deg);}
+		#control{margin: auto; margin-top: 30px;}
+		@keyframes shift{
+			from{background-position: 0 0;}
+			to{background-position: -50vw 0;}
+		}
+	</style>
+</head>
+
+<body>
+	<div id="container">
+		<div id="left" class="shiftani"></div>
+		<div id="right" class="shiftani"></div>
+	</div>
+	<input type="range" id="control" step="0.1" min="0.2" max="5" value="2">
+	<input type="range" id="control3d" step="1" min="0" max="360" value="0">
+
+	<script type="text/javascript">
+		control.oninput = function(){
+			left.style.animationDuration = control.value + "s";
+			right.style.animationDuration = control.value + "s";
+
+		}
+		control3d.oninput = function(){
+			left.style.transform = "rotateZ("+control3d.value+"deg)";
+			right.style.transform = "rotateZ("+control3d.value+"deg)";
+		}
+	</script>
+
+	
+</body>
+</html>
